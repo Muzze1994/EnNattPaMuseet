@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace en_natt_pa_museet_Muzze1994
 {
-    class Room : Artwork
+    public class Room : Artwork
     {
         public string roomName;
         public int roomNumber;
-        public List<Artwork> artworks = new List<Artwork>();
-        public List<Room> ConnectedRooms = new List<Room>();
+        private List<Artwork> artworks = new List<Artwork>();
+        private List<Room> ConnectedRooms = new List<Room>();
 
         public Room(string roomName, int roomNumber)
         {
@@ -17,6 +17,8 @@ namespace en_natt_pa_museet_Muzze1994
             this.ConnectedRooms = new List<Room>();
         }
 
+        //Adds objects to the ConnectedRooms-list 
+        //If none of the objects are added then Object 1 gets added to the list of Object 2 and Object 2 gets added to list of Object 1
         public void ConnectToRoom(Room RoomToConnectTo)
         {
             if (this.ConnectedRooms.Contains(RoomToConnectTo) == false)
@@ -25,20 +27,12 @@ namespace en_natt_pa_museet_Muzze1994
                 RoomToConnectTo.ConnectToRoom(this);
             }
         }
-        public int chooseRoom()
-        {
-            int nr = 0;
-            for (int i = 0; i < ConnectedRooms.Count; i++)
-            {
-                nr += ConnectedRooms[i].roomNumber;
-            }
-            return nr;
-        }
-
         public List<Room> GetRoomsThatCanBeReached()
         {
             return ConnectedRooms;
         }
+
+        //Fetches the list of the room that you want to walk to and check if the room exsists
         public bool CanWalkToRoom(Room to)
         {
             List<Room> roomsThatCanBeReached = this.GetRoomsThatCanBeReached();
@@ -67,7 +61,6 @@ namespace en_natt_pa_museet_Muzze1994
         public string PrintOutConnectedRoomNames()
         {
             string roomTitle = "";
-
             for (int i = 0; i < ConnectedRooms.Count; i++)
             {
                 roomTitle += ConnectedRooms[i].roomNumber;
@@ -76,6 +69,15 @@ namespace en_natt_pa_museet_Muzze1994
                 roomTitle += "\n";
             }
             return roomTitle;
+        }
+
+        public int GetNumbersOfConnectedRooms()
+        {
+            return ConnectedRooms.Count;
+        }
+        public int GetNumerOfArtworksInRoom()
+        {
+            return artworks.Count;
         }
     }
 }

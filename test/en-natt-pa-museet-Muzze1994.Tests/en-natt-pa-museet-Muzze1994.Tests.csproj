@@ -14,4 +14,8 @@
     <PackageReference Include="coverlet.collector" Version="1.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\en-natt-pa-museet-Muzze1994\en-natt-pa-museet-Muzze1994.csproj" />
+  </ItemGroup>
+
 </Project>
