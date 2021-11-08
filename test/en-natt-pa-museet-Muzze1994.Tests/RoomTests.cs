@@ -21,7 +21,7 @@ namespace en_natt_pa_museet_Muzze1994.Tests
             room1.AddArtworkToList(ArtworkRoom2);
 
             // arrange
-            Assert.Equal(2, room1.GetNumerOfArtworksInRoom());
+            Assert.Equal(2, room1.GetNumberOfArtworksInRoom());
 
         }
         [Fact]

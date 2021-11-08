@@ -75,7 +75,7 @@ namespace en_natt_pa_museet_Muzze1994
         {
             return ConnectedRooms.Count;
         }
-        public int GetNumerOfArtworksInRoom()
+        public int GetNumberOfArtworksInRoom()
         {
             return artworks.Count;
         }
